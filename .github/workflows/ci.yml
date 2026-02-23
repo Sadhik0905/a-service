@@ -31,3 +31,8 @@ jobs:
 
       - name: Push Docker Image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/a-service:latest
+
+      - name: Deploy to Kubernetes
+        run: |
+            kubectl apply -f k8s/deployment.yaml
+            kubectl apply -f k8s/service.yaml
