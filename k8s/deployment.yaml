@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: a-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: a-service
+  template:
+    metadata:
+      labels:
+        app: a-service
+    spec:
+      containers:
+        - name: a-service
+          image: sadhik09/a-service:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
